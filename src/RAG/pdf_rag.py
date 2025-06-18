@@ -62,6 +62,27 @@ def answer_question(question, documents, template, model):
     return chained_prompt.invoke({"question": question, "context": context})
 
 
+def answer_prompt_no_context(prompt_user, template, model):
+    prompt = ChatPromptTemplate.from_template(template)
+    chained_prompt = prompt | model
+
+    return chained_prompt.invoke({"prompt": prompt_user})
+
+
+def answer_with_events(events, template, model):
+    prompt = ChatPromptTemplate.from_template(template)
+    chained_prompt = prompt | model
+
+    return chained_prompt.invoke({"events": events})
+
+
+def answer_when_scheduled(prompt_with_details, template, model):
+    prompt = ChatPromptTemplate.from_template(template)
+    chained_prompt = prompt | model
+
+    return chained_prompt.invoke({"details": prompt_with_details})
+
+
 def save_faiss_index(vector_store: FAISS, path: str):
     faiss.write_index(vector_store.index, path)
 
