@@ -196,3 +196,4 @@ cython_debug/
 # Token
 token.json
 ticketmaster_key.json
+client_secret.json

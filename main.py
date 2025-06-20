@@ -13,7 +13,7 @@ from src.utils.google_utils import write_an_event, name_the_next_10_events
 from src.utils.ticketmaster_utils import get_ticketmaster_events
 
 # Run initializer.sh to set up the environment variable
-os.environ["GOOGLE_CREDENTIAL_API"] = r"C:\Users\mario\Documents\client_secret.json"
+os.environ["GOOGLE_CREDENTIAL_API"] = "client_secret.json"
 print(os.getenv("GOOGLE_CREDENTIAL_API"))
 
 
@@ -134,10 +134,4 @@ if __name__ == "__main__":
 
     chatbot(model, template, template_when_events_are_given, template_when_scheduling)
 
-    # event_name = "Test Event"
-    # event_description = "This is a test event created by the Google Calendar API."
-    # location = "Monterrey, Nuevo León, México"
-    # event_start = "2025-06-11T10:00:00-07:00"
-    # event_end = "2025-06-11T11:00:00-07:00"
-    # # write_an_event(event_name, event_description, location, event_start, event_end)
     # name_the_next_10_events()
